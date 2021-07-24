@@ -313,41 +313,6 @@ if [ $? -eq 0 ]
 		exit
 fi
 
-#---------------------------------
-# Add inbound rule to security group
-# echo
-# echo "ADD INBOUND RULE TO SECURITY GROUP"
-# echo -n "Protocol (tcp,udp,icmp) ["$DEFAULT_INBOUND_RULE_PROTOCOL"]: " 
-
-# read INBOUND_RULE_PROTOCOL
-# if [ -z "$INBOUND_RULE_PROTOCOL" ]
-# 	then
-# 		INBOUND_RULE_PROTOCOL=$DEFAULT_INBOUND_RULE_PROTOCOL
-# fi
-# echo -n "Port no. ["$DEFAULT_INBOUND_RULE_PORT"]: " 
-# read INBOUND_RULE_PORT
-# if [ -z "$INBOUND_RULE_PORT" ]
-# 	then
-# 		INBOUND_RULE_PORT=$DEFAULT_INBOUND_RULE_PORT
-# fi
-# echo -n "CIDR block ["$DEFAULT_INBOUND_RULE_CIDR"]: " 
-# read INBOUND_RULE_CIDR_BLOCK
-# if [ -z "INBOUND_RULE_CIDR_BLOCK" ]
-# 	then
-# 		INBOUND_RULE_CIDR_BLOCK=$DEFAULT_INBOUND_RULE_CIDR
-# fi
-
-# aws ec2 authorize-security-group-ingress --region $CURRENT_REGION --group-id $SECURITY_GROUP_ID --protocol $INBOUND_RULE_PROTOCOL --port $INBOUND_RULE_PORT --cidr $DEFAULT_INBOUND_RULE_CIDR
-#  if [ $? -eq 0 ]
-# 	then
-# 		echo "Inbound rule" $INBOUND_RULE_CIDR">" $INBOUND_RULE_PORT "added to security group: "$SECURITY_GROUP_ID" [SUCCESS]"
-# 	else
-# 		echo "Inbound rule addition [FAIL]"
-# 		echo "AWS CLI return code is:" $?
-# 		exit
-# fi
-#-----------------------------------------------
-
 # do while loop for adding multiple security rules. Will run at least once and test for exit at bottom of loop.
 while true; do
 	echo
